@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="420.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/9"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <fx:include fx:id="postPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                source="PostPane.fxml" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="402.0" AnchorPane.topAnchor="2.0"/>
+    <fx:include fx:id="getPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                source="GetPane.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                AnchorPane.rightAnchor="402.0" AnchorPane.topAnchor="272.0"/>
+    <fx:include fx:id="bookListPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                source="BookListPane.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="202.0"
+                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+    <Separator layoutX="200.0" layoutY="75.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="10.0"
+               AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+</AnchorPane>

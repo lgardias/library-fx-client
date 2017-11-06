@@ -7,19 +7,16 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0"
-      prefWidth="200.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.lgardias.fx.controllers.GetPaneController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgardias.fx.controllers.GetPaneController">
     <children>
         <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Wybierz rodzaj wyświetlania">
             <VBox.margin>
-                <Insets top="10.0"/>
+                <Insets top="10.0" />
             </VBox.margin>
         </Label>
-        <Separator prefHeight="20.0" prefWidth="200.0"/>
-        <ChoiceBox fx:id="getPropertyChoiceBox" maxWidth="1.7976931348623157E308" prefWidth="150.0"/>
-        <Separator prefHeight="20.0" prefWidth="200.0"/>
-        <Button fx:id="getButton" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                text="Wyświetl"/>
+        <Separator prefHeight="20.0" prefWidth="200.0" />
+        <ChoiceBox fx:id="getPropertyChoiceBox" maxWidth="1.7976931348623157E308" prefWidth="150.0" />
+        <Separator prefHeight="20.0" prefWidth="200.0" />
+        <Button fx:id="getButton" alignment="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Wyświetl" />
     </children>
 </VBox>
