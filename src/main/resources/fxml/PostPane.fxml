@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/9"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgardias.fx.controllers.PostPaneController">
+    <children>
+        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+               text="Dodaj nową książkę"/>
+        <Separator prefHeight="20.0" prefWidth="200.0"/>
+        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Tytuł książki"/>
+        <TextField fx:id="titleTextField"/>
+        <Separator prefHeight="20.0" prefWidth="200.0"/>
+        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Autor książki"/>
+        <TextField fx:id="AuthorTextField"/>
+        <Separator prefHeight="20.0" prefWidth="200.0"/>
+        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Status wypożyczenia"/>
+        <ChoiceBox fx:id="borrowedChoiceBox" maxWidth="1.7976931348623157E308" prefWidth="150.0"/>
+        <Separator prefHeight="20.0" prefWidth="200.0"/>
+        <Button fx:id="postButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Dodaj"/>
+        <Separator prefHeight="20.0" prefWidth="200.0"/>
+    </children>
+</VBox>
