@@ -17,7 +17,7 @@
         <TextField fx:id="titleTextField"/>
         <Separator prefHeight="20.0" prefWidth="200.0"/>
         <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Autor książki"/>
-        <TextField fx:id="AuthorTextField"/>
+        <TextField fx:id="authorTextField"/>
         <Separator prefHeight="20.0" prefWidth="200.0"/>
         <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Status wypożyczenia"/>
         <ChoiceBox fx:id="borrowedChoiceBox" maxWidth="1.7976931348623157E308" prefWidth="150.0"/>
