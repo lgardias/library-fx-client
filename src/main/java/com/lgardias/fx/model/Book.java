@@ -1,6 +1,8 @@
 package com.lgardias.fx.model;
 
 public class Book {
+
+    private String id;
     private String title;
     private String author;
     private String borrowed;
@@ -32,7 +34,8 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "title='" + title + '\'' +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", borrowed='" + borrowed + '\'' +
                 '}';

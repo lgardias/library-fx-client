@@ -3,8 +3,6 @@ package com.lgardias.fx.controllers;
 import com.lgardias.fx.communication.ApacheClient;
 import com.lgardias.fx.model.Book;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,6 +14,8 @@ import java.util.ResourceBundle;
 
 public class PostPaneController implements Initializable{
 
+    private String trueValue = "Wypożyczona";
+    private String falseValue = "Na stanie";
     @FXML
     private TextField titleTextField;
 
@@ -32,7 +32,7 @@ public class PostPaneController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
         borrowedChoiceBox.setValue("Na stanie");
-        borrowedChoiceBox.setItems(FXCollections.observableArrayList("Na stanie","Wypożyczona"));
+        borrowedChoiceBox.setItems(FXCollections.observableArrayList(falseValue,trueValue));
 
         configureButton();
     }
@@ -53,11 +53,10 @@ public class PostPaneController implements Initializable{
     }
 
     private String borrowedConverter(String value){
-        String result;
-        if (value.equals("Na stanie")){
-            return result = "false";
+        if (value.equals(falseValue)){
+            return "false";
         }else{
-            return result = "true";
+            return "true";
         }
     }
 }
