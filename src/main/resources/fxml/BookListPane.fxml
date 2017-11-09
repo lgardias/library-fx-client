@@ -4,13 +4,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgardias.fx.controllers.BookListPaneController">
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="410.0"
+            xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgardias.fx.controllers.BookListPaneController">
     <children>
-        <TableView fx:id="bookTableViev" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TableView fx:id="bookTableViev" layoutX="1.0" layoutY="27.0" prefHeight="200.0" prefWidth="273.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                   AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn fx:id="titleTableColumn" minWidth="-1.0" prefWidth="-1.0" resizable="false" text="Tytuł" />
-                <TableColumn fx:id="authorTableColumn" minWidth="-1.0" prefWidth="-1.0" resizable="false" text="Autor" />
-                <TableColumn fx:id="borrowedTableColumn" minWidth="-1.0" prefWidth="-1.0" resizable="false" text="Na stanie?" />
+                <TableColumn fx:id="titleColumn" minWidth="-Infinity" prefWidth="150.0" resizable="false" text="Tytuł"/>
+                <TableColumn fx:id="authorColumn" minWidth="-Infinity" prefWidth="150.0" resizable="false" text="Autor"/>
+                <TableColumn fx:id="borrowedColumn" minWidth="-Infinity" prefWidth="106.0" resizable="false" text="Na stanie?"/>
             </columns>
         </TableView>
     </children>

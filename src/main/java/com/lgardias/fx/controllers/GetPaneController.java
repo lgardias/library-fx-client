@@ -1,18 +1,22 @@
 package com.lgardias.fx.controllers;
 
 import com.lgardias.fx.communication.ApacheClient;
+import com.lgardias.fx.model.ChoiceBoxProperties;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 
 import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.*;
 
-public class GetPaneController implements Initializable{
+public class GetPaneController implements Initializable {
+
+    private ChoiceBoxProperties choiceBoxProperties = new ChoiceBoxProperties();
 
     @FXML
-    private ChoiceBox<?> getPropertyChoiceBox;
+    private ChoiceBox<String> getPropertyChoiceBox;
 
     @FXML
     private Button getButton;
@@ -20,13 +24,20 @@ public class GetPaneController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        configureButton();
+        configureChoiceBox();
     }
 
-    private void configureButton() {
-        getButton.setOnAction(event ->{
-            ApacheClient apacheClient = new ApacheClient();
-            apacheClient.getBooks();
-        });
+    public Button getGetButton() {
+        return getButton;
     }
+
+    public ChoiceBox<String> getGetPropertyChoiceBox() {
+        return getPropertyChoiceBox;
+    }
+
+    private void configureChoiceBox() {
+        getPropertyChoiceBox.setValue(choiceBoxProperties.getAllBooksGP());
+        getPropertyChoiceBox.setItems(FXCollections.observableArrayList(choiceBoxProperties.getGProperties()));
+    }
+
 }

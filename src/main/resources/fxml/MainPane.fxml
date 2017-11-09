@@ -5,7 +5,7 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="420.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/9"
-            xmlns:fx="http://javafx.com/fxml/1">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lgardias.fx.controllers.MainPaneController">
     <fx:include fx:id="postPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
                 source="PostPane.fxml" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="0.0"
                 AnchorPane.rightAnchor="402.0" AnchorPane.topAnchor="2.0"/>

@@ -2,6 +2,7 @@ package com.lgardias.fx.communication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lgardias.fx.model.Book;
+import com.lgardias.fx.model.Converter;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -23,7 +24,6 @@ import java.util.List;
 public class ApacheClient {
     private final String urlPost = "http://localhost:8080/book";
     private final String urlGet = "http://localhost:8080/books";
-    private final ObjectMapper mapper = new ObjectMapper();
 
     public void createBook(Book book) {
 
@@ -33,7 +33,7 @@ public class ApacheClient {
 
 
         try {
-            httpPost.setEntity(new StringEntity(bookToJson(book)));
+            httpPost.setEntity(new StringEntity(Converter.BookToJSON(book)));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -47,7 +47,7 @@ public class ApacheClient {
 
     }
 
-    public List<Book> getBooks(){
+    public String getBooks(){
         CloseableHttpClient closeableHttpClient = HttpClientBuilder.create().build();
         HttpGet httpGet = new HttpGet(urlGet);
         httpGet.addHeader("Content-Type","application/json");
@@ -62,8 +62,8 @@ public class ApacheClient {
                 while ((line = reader.readLine()) != null) {
                     result.append(line);
                 }
-               // jsonToObject(result.toString());
-                //System.out.println(result.toString());
+
+                return result.toString();
 
 
             }
@@ -73,30 +73,4 @@ public class ApacheClient {
         return null;
     }
 
-//    private List<Book> jsonToObject(String value){
-//
-//        List<Book> books = new LinkedList<>();
-//        try {
-//            JSONObject myjson = new JSONObject(value);
-//            JSONArray jsonArray = myjson.getJSONArray("");
-//            for (int i = 0 ; i < jsonArray.length(); i++){
-//                JSONObject jsonObject = jsonArray.getJSONObject(i);
-//                System.out.println(jsonObject.toString());
-//            }
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
-//    }
-    private String bookToJson(Book book) {
-        String jsonInString = null;
-        try {
-            jsonInString = mapper.writeValueAsString(book);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return jsonInString;
-    }
 }

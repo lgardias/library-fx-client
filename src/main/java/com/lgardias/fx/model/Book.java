@@ -31,6 +31,14 @@ public class Book {
         this.borrowed = borrowed;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -40,4 +48,5 @@ public class Book {
                 ", borrowed='" + borrowed + '\'' +
                 '}';
     }
+
 }
