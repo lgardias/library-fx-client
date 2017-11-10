@@ -18,12 +18,16 @@ import java.util.ResourceBundle;
 public class MainPaneController implements Initializable {
 
     private Button getButton;
+    private Button postButton;
+
     private ChoiceBox<String> propoertyChoiceBox;
     private TableColumn<BookProperty, String> titleColumn;
     private TableColumn<BookProperty, String> authorColumn;
     private TableColumn<BookProperty, String> borrowedColumn;
 
     private TableView<BookProperty> bookListTableView;
+
+    private ObservableList<BookProperty> selectedBooks;
 
     @FXML
     private GetPaneController getPaneController;
@@ -34,10 +38,13 @@ public class MainPaneController implements Initializable {
     @FXML
     private BookListPaneController bookListPaneController;
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         configureChoiceBox();
         configureButton();
+        configureBookListPane();
     }
 
     private void configureChoiceBox() {
@@ -51,29 +58,41 @@ public class MainPaneController implements Initializable {
             ApacheClient apacheClient = new ApacheClient();
             List<Book> books = Converter.JsonToBooks(apacheClient.getBooks(), propoertyChoiceBox.getValue());
 
-            configureBookListPane(books);
+            addBooksToList(books);
+        });
+
+        postButton = postPaneController.getPostButton();
+        postButton.setOnAction(event -> {
+            Book book = postPaneController.getNewBook();
+            ApacheClient apacheClient = new ApacheClient();
+            apacheClient.createBook(book);
+            selectedBooks.add(new BookProperty(book));
         });
     }
 
-    private void configureBookListPane(List<Book> books) {
+    private void addBooksToList(List<Book> books) {
+
+        selectedBooks = FXCollections.observableArrayList();
+
+        for(Book book : books){
+            selectedBooks.add(new BookProperty(book));
+        }
+        bookListTableView.setItems(selectedBooks);
+    }
+    private void configureBookListPane() {
+
+        selectedBooks = FXCollections.observableArrayList();
 
         bookListTableView = bookListPaneController.getBookTableViev();
         titleColumn = bookListPaneController.getTitleColumn();
         authorColumn = bookListPaneController.getAuthorColumn();
         borrowedColumn = bookListPaneController.getBorrowedColumn();
 
-        ObservableList<BookProperty> selectedBooks = FXCollections.observableArrayList();
-
-        for(Book book : books){
-            selectedBooks.add(new BookProperty(book));
-        }
-
         titleColumn.setCellValueFactory(new PropertyValueFactory<BookProperty, String >("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<BookProperty, String>("author"));
         borrowedColumn.setCellValueFactory(new PropertyValueFactory<BookProperty, String>("borrowed"));
 
         bookListTableView.setItems(selectedBooks);
-
 
     }
 }

@@ -2,6 +2,7 @@ package com.lgardias.fx.controllers;
 
 import com.lgardias.fx.communication.ApacheClient;
 import com.lgardias.fx.model.Book;
+import com.lgardias.fx.model.BookProperty;
 import com.lgardias.fx.model.ChoiceBoxProperties;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -29,27 +30,27 @@ public class PostPaneController implements Initializable {
     @FXML
     private Button postButton;
 
+    public Button getPostButton() {
+        return postButton;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         configureChoiceBox();
-        configureButton();
     }
 
-    private void configureButton() {
 
-        postButton.setOnAction(event -> {
-            Book book = new Book();
+    public Book getNewBook(){
+        Book book = new Book();
+        if (!titleTextField.getText().isEmpty() || !authorTextField.getText().isEmpty()) {
             book.setTitle(titleTextField.getText());
             book.setAuthor(authorTextField.getText());
             book.setBorrowed(borrowedConverter(borrowedChoiceBox.getValue()));
-            System.out.println(book);
+            return book;
+        }
 
-            ApacheClient apacheClient = new ApacheClient();
-            apacheClient.createBook(book);
-
-        });
+        return null;
     }
-
     private void configureChoiceBox() {
         borrowedChoiceBox.setValue(choiceBoxPropertiesc.getFalseValuePP());
         borrowedChoiceBox.setItems(FXCollections.observableArrayList(choiceBoxPropertiesc.getFalseValuePP(), choiceBoxPropertiesc.getTrueValuePP()));
@@ -62,4 +63,5 @@ public class PostPaneController implements Initializable {
             return "true";
         }
     }
+
 }
